@@ -55,7 +55,7 @@ export default function ContactSection() {
                     href="https://github.com/chimikoo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border hover:bg-muted transition-colors"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border hover:bg-emerald-600 transition-colors"
                   >
                     <Github className="h-5 w-5" />
                     <span className="sr-only">GitHub</span>
@@ -64,7 +64,7 @@ export default function ContactSection() {
                     href="https://www.linkedin.com/in/per-emil-johansson-1648b0278/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border hover:bg-muted transition-colors"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border hover:bg-emerald-600 transition-colors"
                   >
                     <Linkedin className="h-5 w-5" />
                     <span className="sr-only">LinkedIn</span>

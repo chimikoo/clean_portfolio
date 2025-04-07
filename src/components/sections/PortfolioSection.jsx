@@ -27,7 +27,7 @@ export default function PortfolioSection() {
       description:
         "TapTrack streamlines order management and inventory tracking through an intuitive interface built with the MERN stack. Designed with real-world hospitality experience in mind, it helps restaurant staff handle daily operations more efficiently. Features include real-time order processing, inventory updates, and user role management—all optimized for both desktop and tablet use.",
       link: "https://github.com/chimikoo/TapTrack",
-      techStack: ["react", "nodejs", "mongodb", "express"],
+      techStack: ["react", "nodejs", "mongodb", "express", "tailwindcss"],
     },
     {
       id: 2,

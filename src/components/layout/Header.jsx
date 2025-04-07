@@ -12,7 +12,7 @@ export default function Header() {
         <Link href="/" className="font-bold text-xl text-white">Portfolio</Link>
         <nav className="hidden md:flex gap-6">
           {menuItems.map(item => (
-            <Link key={item} href={`#${item}`} className="text-sm font-medium hover:text-primary transition-colors">
+            <Link key={item} href={`#${item}`} className="text-sm font-medium hover:text-emerald-600 transition-colors">
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>
           ))}
