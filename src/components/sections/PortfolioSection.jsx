@@ -17,7 +17,8 @@ export default function PortfolioSection() {
     graphql: "devicon-graphql-plain",
     threejs: "devicon-threejs-original",
     typescript: "devicon-typescript-plain",
-    sanity: "devicon-sanity-plain",
+    sanity: "devicon-sanity-plain colored",
+    nextjs: "devicon-nextjs-plain",
   };
 
   const projects = [
@@ -29,6 +30,7 @@ export default function PortfolioSection() {
       description:
         "TapTrack streamlines order management and inventory tracking through an intuitive interface built with the MERN stack. Designed with real-world hospitality experience in mind, it helps restaurant staff handle daily operations more efficiently. Features include real-time order processing, inventory updates, and user role management—all optimized for both desktop and tablet use.",
       link: "https://github.com/chimikoo/TapTrack",
+      videoLink: "https://www.youtube.com/watch?v=CY5McmNfGuM",
       techStack: ["react", "nodejs", "mongodb", "express", "tailwindcss"],
     },
     {
@@ -38,7 +40,7 @@ export default function PortfolioSection() {
       image: "/tetris_clone.png",
       description:
         "A modern browser-based Tetris game built with React and JavaScript. This project recreates the classic Tetris experience with smooth controls, scoring, and level progression. It features clean component structure, custom hooks for game logic, and pixel-perfect styling using Tailwind CSS. Great for demonstrating state management, game loops, and animation in React.",
-      link: "https://github.com/chimikoo/tetris",
+      link: "https://tetris-three-brown.vercel.app/",
       techStack: ["react", "javascript", "tailwindcss", "threejs"],
     },
     {
@@ -59,7 +61,7 @@ export default function PortfolioSection() {
       description:
         "A professional services website built to showcase handyman services. Developed with Next.js for fast and optimized rendering, styled using Tailwind CSS for a clean and responsive design. Sanity.io serves as the headless CMS, allowing dynamic content updates without redeploying the site. Deployed and hosted seamlessly on Vercel.",
       link: "https://handyman-pro-sand.vercel.app/",
-      techStack: ["nextjs", "react", "tailwindcss", "sanity", "typescript"],    
+      techStack: ["nextjs", "react", "tailwindcss", "sanity", "typescript"],
     },
     {
       id: 5,
@@ -71,7 +73,6 @@ export default function PortfolioSection() {
       link: "https://coinspin-app.vercel.app/",
       techStack: ["vite", "tailwindcss", "react", "typescript"],
     },
-    
   ];
 
   function ExpandableText({ text }) {
@@ -83,11 +84,9 @@ export default function PortfolioSection() {
     return (
       <p
         onClick={() => isLong && setExpanded((prev) => !prev)}
-        className={`
-          text-sm text-gray-300 cursor-pointer transition-all
-          ${!expanded ? "line-clamp-3" : ""}
-          hover:text-emerald-400
-        `}
+        className={`text-sm text-gray-300 cursor-pointer transition-all ${
+          !expanded ? "line-clamp-3" : ""
+        } hover:text-emerald-400`}
         title={expanded ? "Click to collapse" : "Click to expand"}
       >
         {expanded || !isLong ? text : `${preview}...`}
@@ -114,15 +113,14 @@ export default function PortfolioSection() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-900"
+                className="group overflow-hidden rounded-lg border border-gray-800 bg-gray-900 flex flex-col"
               >
-                <div className="relative h-full w-full">
+                <div className="relative w-full aspect-[3/2]">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    width={600}
-                    height={400}
-                    className="object-contain w-full h-full"
+                    fill
+                    className="object-contain"
                   />
                   <div className="absolute bottom-0 left-0 w-full p-5 bg-gray-900/60 backdrop-blur-sm text-white">
                     <div className="flex items-center justify-between">
@@ -130,36 +128,57 @@ export default function PortfolioSection() {
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="mt-2 text-xl font-bold">{project.title}</h3>
-                    <div className="mt-2">
-                      <ExpandableText text={project.description} />
-                    </div>
-                    <div className="mt-4 pt-2 flex items-center justify-between flex-wrap gap-3">
-                      <div className="w-full mt-4 pt-2 flex items-center justify-between flex-wrap gap-3">
-                        <Button variant="outline" size="sm" asChild>
-                          <Link
-                            href={project.link}
-                            className="flex items-center gap-1"
-                            target="_blank"
-                          >
-                            View Project{" "}
-                            <ExternalLink className="h-3 w-3 ml-1" />
-                          </Link>
-                        </Button>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold">{project.title}</h3>
+                  <div className="mt-2">
+                    <ExpandableText text={project.description} />
+                  </div>
 
-                        <div className="flex items-center gap-3">
-                          {project.techStack?.map((tech) => (
-                            <i
-                              key={tech}
-                              className={`${
-                                techIconMap[tech] ?? ""
-                              } colored text-xl`}
-                              title={tech.toUpperCase()}
-                            />
-                          ))}
-                        </div>
+                  <div className="mt-4 pt-2 flex flex-col gap-3 flex-grow justify-end">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex gap-2">
+                        {project.link && (
+                          <Button variant="outline" size="sm" asChild>
+                            <Link
+                              href={project.link}
+                              className="flex items-center gap-1"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View Code{" "}
+                              <ExternalLink className="h-3 w-3 ml-1" />
+                            </Link>
+                          </Button>
+                        )}
+                        {project.videoLink && (
+                          <Button variant="outline" size="sm" asChild>
+                            <Link
+                              href={project.videoLink}
+                              className="flex items-center gap-1"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Watch Demo{" "}
+                              <ExternalLink className="h-3 w-3 ml-1" />
+                            </Link>
+                          </Button>
+                        )}
                       </div>
-                    </div>{" "}
+
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {project.techStack?.map((tech) => (
+                          <i
+                            key={tech}
+                            className={`${
+                              techIconMap[tech] ?? ""
+                            } colored text-xl`}
+                            title={tech.toUpperCase()}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
