@@ -16,6 +16,8 @@ export default function PortfolioSection() {
     tailwindcss: "devicon-tailwindcss-plain",
     graphql: "devicon-graphql-plain",
     threejs: "devicon-threejs-original",
+    typescript: "devicon-typescript-plain",
+    sanity: "devicon-sanity-plain",
   };
 
   const projects = [
@@ -49,6 +51,27 @@ export default function PortfolioSection() {
       link: "https://github.com/chimikoo/Eclipse",
       techStack: ["nodejs", "graphql", "javascript"],
     },
+    {
+      id: 4,
+      title: "Handyman Pro Website",
+      category: "Web Development",
+      image: "/handyman.png",
+      description:
+        "A professional services website built to showcase handyman services. Developed with Next.js for fast and optimized rendering, styled using Tailwind CSS for a clean and responsive design. Sanity.io serves as the headless CMS, allowing dynamic content updates without redeploying the site. Deployed and hosted seamlessly on Vercel.",
+      link: "https://handyman-pro-sand.vercel.app/",
+      techStack: ["nextjs", "react", "tailwindcss", "sanity", "typescript"],    
+    },
+    {
+      id: 5,
+      title: "CoinSpin App",
+      category: "Web Development",
+      image: "/coinspin.png",
+      description:
+        "An interactive web app featuring smooth spritesheet animation rendered with the Canvas. Built with Vite and TypeScript for fast and efficient development. Styled using Tailwind CSS for a clean and minimal look. Demonstrates frame-by-frame animation techniques typically used in web games. Deployed and hosted seamlessly on Vercel.",
+      link: "https://coinspin-app.vercel.app/",
+      techStack: ["vite", "tailwindcss", "react", "typescript"],
+    },
+    
   ];
 
   function ExpandableText({ text }) {
@@ -99,7 +122,7 @@ export default function PortfolioSection() {
                     alt={project.title}
                     width={600}
                     height={400}
-                    className="object-cover w-full h-full"
+                    className="object-contain w-full h-full"
                   />
                   <div className="absolute bottom-0 left-0 w-full p-5 bg-gray-900/60 backdrop-blur-sm text-white">
                     <div className="flex items-center justify-between">
