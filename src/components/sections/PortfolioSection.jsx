@@ -122,7 +122,7 @@ export default function PortfolioSection() {
                     fill
                     className="object-contain"
                   />
-                  <div className="absolute bottom-0 left-0 w-full p-5 bg-gray-900/60 backdrop-blur-sm text-white">
+                  <div className="absolute bottom-0 left-0 w-full p-3 bg-gray-900/60 backdrop-blur-sm text-white">
                     <div className="flex items-center justify-between">
                       <span className="inline-block text-xs font-medium text-gray-300">
                         {project.category}
