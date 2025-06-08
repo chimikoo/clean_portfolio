@@ -18,7 +18,7 @@ export default function AboutSection() {
           </div>
 
           {/* Your profile content — visually below About Me */}
-          <div className="max-w-3xl text-left space-y-4">
+          <div className="max-w-3xl text-left space-y-4 pt-5">
             <h3 className="text-2xl font-bold">
               Full-stack Developer & Backend Enthusiast
             </h3>
