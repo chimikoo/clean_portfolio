@@ -59,7 +59,7 @@ export default function AboutSection() {
 
             <div className="pt-4">
               <Button variant="outline" asChild>
-                <Link href="/Resume_EN_Per-Emil.pdf" download>
+                <Link href="/per-emil_j_cv.pdf" download>
                   Download Resume
                 </Link>
               </Button>

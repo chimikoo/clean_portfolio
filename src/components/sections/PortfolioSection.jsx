@@ -60,7 +60,7 @@ export default function PortfolioSection() {
       image: "/handyman.png",
       description:
         "A professional services website built to showcase handyman services. Developed with Next.js for fast and optimized rendering, styled using Tailwind CSS for a clean and responsive design. Sanity.io serves as the headless CMS, allowing dynamic content updates without redeploying the site. Deployed and hosted seamlessly on Vercel.",
-      link: "https://handyman-pro-sand.vercel.app/",
+      videoLink: "https://handyman-pro-sand.vercel.app/",
       techStack: ["nextjs", "react", "tailwindcss", "sanity", "typescript"],
     },
     {
@@ -70,8 +70,28 @@ export default function PortfolioSection() {
       image: "/coinspin.png",
       description:
         "An interactive web app featuring smooth spritesheet animation rendered with the Canvas. Built with Vite and TypeScript for fast and efficient development. Styled using Tailwind CSS for a clean and minimal look. Demonstrates frame-by-frame animation techniques typically used in web games. Deployed and hosted seamlessly on Vercel.",
-      link: "https://coinspin-app.vercel.app/",
+      videoLink: "https://coinspin-app.vercel.app/",
       techStack: ["vite", "tailwindcss", "react", "typescript"],
+    },
+    {
+      id: 6,
+      title: "Cultura",
+      category: "Web Development",
+      image: "/cultura.png",
+      description:
+        "A sleek, user-friendly web app focused on fostering a positive customer‑centric mindset within organizations. This project showcases an interactive digital resource that presents key concepts, guidelines, and best practices for building a strong customer service culture. Built with TypeScript for fast and efficient development. Styled using Tailwind CSS for a clean and minimal look. Sanity to serve as the headless CMS, allowing dynamic content updates without redeploying the site. Deployed and hosted seamlessly on Vercel.",
+      videoLink: "https://culturaclient.vercel.app",
+      techStack: ["tailwindcss", "react", "typescript", "sanity"],
+    },
+        {
+      id: 7,
+      title: "PC BuilderShop",
+      category: "Web Development",
+      image: "/pc_builder.png",
+      description:
+        "A modern web application that allows users to configure and customize their own PC builds from a curated selection of components. Users can choose compatible parts across categories like CPU, GPU, RAM, and storage, simulating a real-world PC-building experience. The site features a responsive design, real-time compatibility checks, and an intuitive user interface. Built with Next.js and TypeScript for fast and efficient development. Styled using Tailwind CSS for a clean and minimal look. Deployed and hosted seamlessly on Vercel.",
+      videoLink: "https://pc-builder-shop-t3x4.vercel.app/",
+      techStack: ["tailwindcss", "react", "typescript", "mongodb", "nextjs"],
     },
   ];
 
