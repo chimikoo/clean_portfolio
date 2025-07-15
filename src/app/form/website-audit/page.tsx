@@ -199,6 +199,28 @@ function MultiSelect({ options, selectedValues, onChange, placeholder }: MultiSe
     );
   };
 
+  // Add scrollbar styles to the document
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 3px;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return (): void => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   // Create portal for the dropdown
   const DropdownContent = () => {
     if (!isOpen) return null;
@@ -255,29 +277,6 @@ function MultiSelect({ options, selectedValues, onChange, placeholder }: MultiSe
       scrollbarColor: '#cbd5e0 #f7fafc',
       msOverflowStyle: 'none',
     };
-
-    // Add scrollbar styles to the document
-    useEffect(() => {
-      const style = document.createElement('style');
-      style.textContent = `
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f1f1;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #c1c1c1;
-          border-radius: 3px;
-        }
-      `;
-      document.head.appendChild(style);
-      
-      // Return cleanup function with proper type
-      return (): void => {
-        document.head.removeChild(style);
-      };
-    }, []);
 
     return createPortal(
       <div 
