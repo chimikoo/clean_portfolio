@@ -334,9 +334,28 @@ function MultiSelect({ options, selectedValues, onChange, placeholder }: MultiSe
 }
 
 export default function WebsiteReviewForm() {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>("en")
+  const [currentLanguage, setCurrentLanguage] = useState<'en' | 'de' | 'sv'>('en');
   const [selectedChallenges, setSelectedChallenges] = useState<string[]>([])
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Detect browser language on component mount
+  useEffect(() => {
+    setIsClient(true);
+    
+    // Only run on the client side
+    if (typeof window !== 'undefined') {
+      const browserLanguage = navigator.language || (navigator as any).userLanguage;
+      
+      // Check if the language is German or Swedish, default to English otherwise
+      if (browserLanguage.startsWith('de')) {
+        setCurrentLanguage('de');
+      } else if (browserLanguage.startsWith('sv')) {
+        setCurrentLanguage('sv');
+      }
+      // Default is already 'en'
+    }
+  }, []);
 
   const t = translations[currentLanguage]
 
@@ -375,22 +394,29 @@ export default function WebsiteReviewForm() {
                   className="w-[140px] px-3 py-1 text-left bg-transparent border-0 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded flex items-center justify-between"
                 >
                   <div className="flex items-center gap-2">
-                    {currentLanguage === "en" && (
+                    {!isClient ? (
+                      // Show loading state on server-side rendering
+                      <span className="text-sm">Loading...</span>
+                    ) : (
                       <>
-                        <span className="text-sm">🇺🇸</span>
-                        <span className="text-sm">English</span>
-                      </>
-                    )}
-                    {currentLanguage === "de" && (
-                      <>
-                        <span className="text-sm">🇩🇪</span>
-                        <span className="text-sm">Deutsch</span>
-                      </>
-                    )}
-                    {currentLanguage === "sv" && (
-                      <>
-                        <span className="text-sm">🇸🇪</span>
-                        <span className="text-sm">Svenska</span>
+                        {currentLanguage === "en" && (
+                          <>
+                            <span className="text-sm">🇺🇸</span>
+                            <span className="text-sm">English</span>
+                          </>
+                        )}
+                        {currentLanguage === "de" && (
+                          <>
+                            <span className="text-sm">🇩🇪</span>
+                            <span className="text-sm">Deutsch</span>
+                          </>
+                        )}
+                        {currentLanguage === "sv" && (
+                          <>
+                            <span className="text-sm">🇸🇪</span>
+                            <span className="text-sm">Svenska</span>
+                          </>
+                        )}
                       </>
                     )}
                   </div>
