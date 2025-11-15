@@ -51,7 +51,7 @@ export default function HeroSection() {
           <div className="flex items-center justify-center">
             <div className="relative aspect-[1] w-[100%] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-emerald-500">
               <Image
-                src="/cartoon_selfie.png"
+                src="/photo.jpg"
                 alt="Profile"
                 fill
                 className="object-cover"
